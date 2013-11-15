@@ -2,13 +2,25 @@
 <html>
 <head>
   <title>ETHIOShelf</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "style"%>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="header">
+<div id="logo_image"> 
+</div>
+	<div style="clear: both; height: 0px;"></div>
+</div>
+<%= render :partial=>"shared/sidebare" %>
+<div id="Content">
+	<% if flash[:notice] -%>
+		<div id="notice"><%= flash[:notice] %></div>
+	<% end -%>
+	<% if flash[:error] -%>
+		<div id="error"><%= flash[:error] %></div>
+	<% end -%>
+	<%= yield %>
+</div>
 </body>
 </html>
